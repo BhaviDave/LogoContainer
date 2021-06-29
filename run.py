@@ -42,9 +42,13 @@ def load_flickr27_model():
 
 app = Flask(__name__)
 
+@app.route("/")
+def check():
+    return jsonify({'Message': "Server Running!"})
+
 @app.route("/im_labels",methods= ['POST'])
 def process_image():
-        #try:
+    try:
         file = request.files['image']
         # Read the image via file.stream
         pil_img = Image.open(file.stream)
@@ -72,8 +76,8 @@ def process_image():
 
         })
 
-        #except:
-        #return jsonify({  'Message': "API Failed :("})
+    except:
+        return jsonify({  'Message': "API Failed :("})
 
 
 if __name__ == "__main__":
