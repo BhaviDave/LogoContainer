@@ -1,0 +1,13 @@
+<!doctype html>
+
+<title>Logo recogntion</title>
+
+<a href="/">Upload photos</a>
+
+<h1>Results:</h1>
+
+<div>
+	{% for item in result %}
+		<img src="{{ item.file }}" alt="No image">
+	{% endfor %}
+</div>
